@@ -1,0 +1,40 @@
+h1, p {
+    margin: inherit;
+    padding: inherit;
+}
+
+body {
+    background-image: url(images/bg.png);
+}
+
+.contents {
+    /* background-color: aquamarine; */
+    margin-top: 200px;
+}
+
+.section {
+    text-align: center;
+}
+
+.text {
+    background-color: #964B00;
+    text-align: left;
+    max-width: 270px;
+    max-height: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding: 10px 10px;
+    border: 4px solid;
+    border-radius: 20px;
+    border-color: #964B00;
+}
+
+.text p {
+    color: #ccc;
+}
+
+.contents {
+    color: white;
+}
