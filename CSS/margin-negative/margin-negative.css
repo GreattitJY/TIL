@@ -1,0 +1,23 @@
+body {
+  margin: 0;
+  background-color: #ccc;
+}
+.contents {
+  background-color: #fff;
+  width: 760px;
+  margin: 100px auto 0;
+  padding: 50px;
+}
+
+.map {
+  background-color: #fff;
+  padding: 50px;
+  box-sizing: content-box;
+  margin: 20px 0;
+  transition: all 0.4s;
+}
+
+.map:hover {
+  margin: 20px -100px;
+  box-shadow: 0 0 100px rgb(0 0 0 / 0.3);
+}
