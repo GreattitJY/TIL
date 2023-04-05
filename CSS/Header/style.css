@@ -1,0 +1,87 @@
+/* CSS Resets */
+body {
+  margin: initial;
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+/* Typography */
+:root {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+}
+
+body {
+  background-color: #222;
+}
+
+/* Layouts */
+.l_wrapper {
+  max-width: 1080px;
+  padding: 0 40px;
+  margin: 0 auto;
+}
+
+/* Variables */
+:root {
+  --header-height: 80px;
+  --duration: 0.4s;
+}
+
+/* Components */
+body {
+  background-color: #222;
+}
+
+.header {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  color: white;
+  transition: color var(--duration);
+}
+
+.header::before {
+  content: " ";
+  background-color: white;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 500px;
+  z-index: -1;
+  transform: translateY(calc(-1 * var(--header-height)));
+}
+
+.header:hover {
+  color: #222;
+}
+
+.header:hover::before {
+  transform: translateY(0);
+  transition: transform var(--duration);
+}
+
+.header-inside {
+  display: flex;
+  height: var(--header-height);
+  align-items: center;
+  gap: 10px;
+}
+
+.header-logo {
+  box-shadow: inset 0 0 30px lime;
+  font-size: 24px;
+}
+
+.header-nav {
+  box-shadow: inset 0 0 30px deeppink;
+}
+
+.header-nav.type_main {
+  flex-grow: 1;
+}
