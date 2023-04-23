@@ -15,6 +15,10 @@ a {
 }
 
 button {
+  /* all: unset
+  ** 원래부터 상속이 되는 property는 inherit
+  ** 그렇지 않은 속성은 initial로 된다.
+  */
   all: unset;
 }
 
@@ -24,10 +28,6 @@ button {
   font-weight: 400;
 }
 
-body {
-  background-color: #222;
-}
-
 /* Layouts */
 .l_wrapper {
   max-width: 1080px;
@@ -35,28 +35,35 @@ body {
   margin: 0 auto;
 }
 
+/* Components */
+body {
+  background-color: var(--color-gray-dark);
+}
+
 /* Variables */
 :root {
   --header-height: 80px;
   --duration: 0.4s;
+  --color-primary: dodgerblue;
+  --color-white: white;
+  --color-gray: #888;
+  --color-gray-dark: #222;
+  --color-gray-light: #eee;
 }
 
 /* commons */
 
 .button {
-  background-color: dodgerblue;
+  background-color: var(--color-primary);
+  color: white;
   height: 48px;
   padding: 0 20px;
-  line-height: 48px;
-  box-shadow: inset 0 -4px rgb(0 0 0 / 0.4);
-  color: white;
+  border-radius: 6px;
+  box-shadow: inset 0 -4px 0 0 rgb(0 0 0 / 0.5);
   cursor: pointer;
 }
 
 /* Components */
-body {
-  background-color: #222;
-}
 
 .header {
   position: fixed;
@@ -69,9 +76,21 @@ body {
   letter-spacing: 0.1em;
 }
 
+.header-inside {
+  display: flex;
+  height: var(--header-height);
+  align-items: center;
+  position: relative;
+}
+
+.header-logo {
+  flex-basis: 160px;
+  flex-shrink: 0;
+}
+
 .header::before {
   content: " ";
-  background-color: white;
+  background-color: var(--color-white);
   position: absolute;
   left: 0;
   right: 0;
@@ -89,11 +108,14 @@ body {
   position: absolute;
   left: 0;
   right: 0;
+  height: 2px;
+  transform: translateY(-100%);
+  z-index: -1;
   top: var(--header-height);
 }
 
 .header:hover {
-  color: #222;
+  color: var(--color-gray-dark);
 }
 
 .header:hover::before {
@@ -101,8 +123,12 @@ body {
   transition: transform var(--duration);
 }
 
+.header.is_hovered::before {
+  transform: translateY(230px);
+}
+
 .header:hover::after {
-  background-color: rgb(255 255 255 / 0.04);
+  background-color: rgb(0 0 0 / 0.1);
 }
 
 .header-inside {
@@ -129,6 +155,9 @@ body {
   display: flex;
 }
 
+.header-nav-list-item {
+}
+
 .header-nav-anchor {
   display: block;
   padding: 0 20px;
@@ -149,10 +178,73 @@ body {
   transition: transform var(--duration);
 }
 
-.header-nav-anchor:hover::after {
+.header-nav-sub {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: 30px 0px 30px 180px;
+  /* margin-left: 170px; */
+  top: var(--header-height);
+
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+
+  opacity: 0;
+  transition: opacity var(--duration);
+  pointer-events: none;
+}
+
+.header-nav-sub-list {
+  color: var(--color-gray);
+  flex-grow: 1;
+}
+
+.header-nav-sub-list li + li {
+  border-top: 2px solid var(--color-gray-light);
+}
+
+.header-nav-sub-list li a {
+  display: block;
+  padding: 4px 0;
+  transition: color var(--duration);
+}
+.header-nav-sub-list li a:hover {
+  color: var(--color-gray-dark);
+}
+
+.header-nav-list-item:hover .header-nav-anchor::after {
   transform: scaleX(1);
 }
 
-.header-nav.type_main {
-  flex-grow: 1;
+.header-nav-list-item:hover .header-nav-sub {
+  opacity: 1;
+  pointer-events: initial;
+}
+
+.header-nav-sub-side {
+  flex-basis: 240px;
+}
+
+/* 임 시 */
+/* .header-nav-list-item:nth-child(1) .header-nav-sub {
+  opacity: 1;
+  pointer-events: initial;
+} */
+
+.cover {
+  height: 900px;
+  max-height: 100vh;
+}
+
+.cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
