@@ -101,8 +101,9 @@
     const el_header = document.querySelector(".header")
 
     el_list_item.forEach((item) => {
-      item.addEventListener("mouseover", () => {
-        el_header.classList.add("is_hovered")
+      item.addEventListener("mouseover", (e) => {
+        const sub = e.currentTarget.querySelector(".header-nav-sub")
+        if (sub) el_header.classList.add("is_hovered")
 
       })
       item.addEventListener("mouseout", () => {
