@@ -98,7 +98,7 @@ body {
   height: 500px;
   z-index: -1;
   transform: translateY(calc(-1 * var(--header-height)));
-  transition: transform var(--duration);
+  transition: transform calc(var(--duration) / 2);
 }
 
 .header::after {
@@ -191,7 +191,6 @@ body {
   justify-content: space-between;
 
   opacity: 0;
-  transition: opacity var(--duration);
   pointer-events: none;
 }
 
@@ -217,8 +216,13 @@ body {
   transform: scaleX(1);
 }
 
+.header-nav-list:hover .header-nav-sub {
+  transition: opacity var(--duration);
+}
+
 .header-nav-list-item:hover .header-nav-sub {
   opacity: 1;
+  transition: opacity var(--duration);
   pointer-events: initial;
 }
 
