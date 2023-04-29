@@ -44,7 +44,7 @@
           </svg>
 
         </a>
-        <nav class="header-nav type_main">
+        <nav class="header-nav type_main hide_mobile">
           <ul class="header-nav-list">
             <li class="header-nav-list-item">
               <a href="" class="header-nav-anchor">LIVE</a>
@@ -79,14 +79,17 @@
             </li>
           </ul>
         </nav>
-        <nav class="header-nav">
+        <nav class="header-nav hide_mobile">
           <ul class="header-nav-list">
             <li class="header-nav-list-item">
               <a href="" class="header-nav-anchor">Login</a>
             </li>
           </ul>
         </nav>
-        <button class="button" type="button">GO PRO</button>
+        <button class="button hide_mobile" type="button">GO PRO</button>
+        <button class="menu show_mobile" type="button">
+          <i class="blind">Menu</i>
+        </button>
       </div>
     </div>
   </header>
@@ -107,10 +110,8 @@
       })
       item.addEventListener("mouseout", () => {
         el_header.classList.remove("is_hovered")
-
       })
     })
-
   </script>
 
 </body>
